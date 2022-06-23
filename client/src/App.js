@@ -7,7 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import { StoreProvider } from "./utils/GlobalState";
+import { AppWrapper } from "./utils/redux";
 import Home from './pages/Home';
 import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
@@ -39,8 +39,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
-          <StoreProvider>
+        <div>    
+          <AppWrapper>
             <Nav />
             <Routes>
               <Route 
@@ -68,7 +68,8 @@ function App() {
                 element={<NoMatch />}
               />
             </Routes>
-          </StoreProvider>
+
+          </AppWrapper>
         </div>
       </Router>
     </ApolloProvider>
