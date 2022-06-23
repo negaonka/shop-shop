@@ -5,7 +5,7 @@ const StoreContext = createContext();
 const { Provider } = StoreContext;
 
 const StoreProvider = ({ value = [], ...props }) => {
-  const [state, dispatch] = useProductReducer({
+  const [dispatch] = useProductReducer({
     products: [],
     cart: [],
     cartOpen: false,
@@ -13,8 +13,7 @@ const StoreProvider = ({ value = [], ...props }) => {
     currentCategory: ''
   });
     // use this to confirm it works!
-    console.log(state);
-    return <Provider value={[state, dispatch]} {...props} />;
+    return <Provider value={[ dispatch]} {...props} />;
   };
 
   const useStoreContext = () => {
