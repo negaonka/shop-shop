@@ -17,6 +17,7 @@ function ProductList() {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   useEffect(() => {
+    console.log("inside useeffect method");
     if(data) {
       dispatch({
         type: UPDATE_PRODUCTS,
